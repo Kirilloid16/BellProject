@@ -10,7 +10,7 @@ public interface OfficeDao {
     //получение офиса но id
     Office oneOffice(long id);
     //обновление информации иб офисе
-    Office saveOffice();
+    void saveOffice();
     //добавление нового офиса
     Office newOffice = new Office();
 }

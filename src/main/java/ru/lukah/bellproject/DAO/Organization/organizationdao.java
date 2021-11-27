@@ -8,7 +8,7 @@ public interface organizationdao {
     //вывод всего return
     List<Organization> allOrganization();
     //сохранение return
-    Organization saveOrganization();
+    void saveOrganization();
     //добавление return
    Organization organization =  new Organization();
     //получение по id return
