@@ -3,7 +3,7 @@ package ru.lukah.bellproject.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Person")
+@Table(name = "Organization")
 public class Organization {
     @Id
     @Column(name = "id", nullable = false)

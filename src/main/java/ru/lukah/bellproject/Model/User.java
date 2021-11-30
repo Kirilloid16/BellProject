@@ -1,7 +1,7 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Entity(name = "User")
 public class User {
@@ -10,6 +10,7 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
     @Column(name = "officeId", nullable = false)
+    @JoinColumn()
     private long officeId;
     @Column(name = "firstName", nullable = false)
     private String firstName;
@@ -21,14 +22,6 @@ public class User {
     private String position;
     @Column(name = "phone", nullable = false)
     private String phone;
-    @Column(name = "docName", nullable = false)
-    private String docName;
-    @Column(name = "docCode", nullable = false)
-    private int docCode;
-    @Column(name = "docNumber", nullable = false)
-    private String docNumber;
-    @Column(name = "docDate", nullable = false)
-    private Date docDate;
     @Column(name = "sitizenShipName", nullable = false)
     private String sitizenShipName;
     @Column(name = "sitizenShipCode", nullable = false)
@@ -80,38 +73,6 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getDocName() {
-        return docName;
-    }
-
-    public void setDocName(String docName) {
-        this.docName = docName;
-    }
-
-    public int getDocCode() {
-        return docCode;
-    }
-
-    public void setDocCode(int docCode) {
-        this.docCode = docCode;
-    }
-
-    public String getDocNumber() {
-        return docNumber;
-    }
-
-    public void setDocNumber(String docNumber) {
-        this.docNumber = docNumber;
-    }
-
-    public Date getDocDate() {
-        return docDate;
-    }
-
-    public void setDocDate(Date docDate) {
-        this.docDate = docDate;
     }
 
     public String getSitizenShipName() {

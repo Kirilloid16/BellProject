@@ -27,23 +27,24 @@ CREATE TABLE IF NOT EXISTS User(
         position varchar(30),
         phone varchar(20),
         docName varchar(50),
-        docNumber int,
-        docCode int,
-        docDate date,
+        docNumber varchar(30),
+        docCode varchar(30),
+        docDate varchar(30),
         citizenShipName varchar(30),
-        sitizenShipCode varchar(30),
+        citizenShipCode varchar(30),
         isIdentified boolean
         );
 
 CREATE TABLE IF NOT EXISTS Countries(
 id int primary key auto_increment,
 name varchar(50),
-code int
+code varchar(30)
 );
 
 CREATE TABLE IF NOT EXISTS Document(
+id int primary key auto_increment,
 docName varchar(50),
-docCode int,
-docNumber int,
-docDate date
+docCode varchar(30),
+docNumber varchar(12),
+docDate varchar(15)
 );

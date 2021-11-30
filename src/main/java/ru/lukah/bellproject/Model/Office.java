@@ -8,8 +8,11 @@ public class Office {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "orgId",nullable = false)
-    private String orgId;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name ="orgId")
+    private Organization organization;
+
     @Column(name = "name",nullable = false,length = 40)
     private String name;
     @Column(name = "address",length = 150,nullable = false)

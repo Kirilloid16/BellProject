@@ -13,7 +13,7 @@ public class Country {
     @Column(name = "Name",nullable = false)
     private String name;
     @Column(name = "code")
-    private int code;
+    private String code;
 
     public String getName() {
         return name;
@@ -23,11 +23,11 @@ public class Country {
         this.name = name;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

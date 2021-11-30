@@ -5,12 +5,12 @@ import ru.lukah.bellproject.Model.Organization;
 import java.util.List;
 
 public interface organizationdao {
-    //вывод всего return
+    //вывод всего из бд
     List<Organization> allOrganization();
-    //сохранение return
-    void saveOrganization();
-    //добавление return
-   Organization organization =  new Organization();
-    //получение по id return
+    //сохранение в изменений бд
+    void  saveOrganization();
+    //добавление в бд
+   Organization organization();
+    //получение по id из бд
     Organization organization(long id);
 }
