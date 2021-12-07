@@ -5,9 +5,10 @@ INSERT INTO ORGANIZATION values
     (NULL,'BP','BritishPetrolium',7766554433,123456700,
      'Улица Пушкина,дом 144 строение 12','84995556677',true);
 INSERT INTO OFFICE values
-    (1,NULL,'MainOffice','Улица Пушкина,дом 144 строение 12',84999325871,true);
+    ((select id from ORGANIZATION where ORGANIZATION.ID = 1),NULL,'MainOffice','Улица Пушкина,дом 144 строение 12',84999325871,true);
 INSERT INTO OFFICE values
-    (2,NULL,'FirstOffice','Улица Пушкина,дом 14 строение 1',89095557866,true);
-INSERT INTO DOCUMENT values (NULL,'Паспорт гражданинаа РФ',643,4517456789,'07.12.1999');
-INSERT INTO COUNTRIES values ( NULL,'Russia',+7);
-INSERT INTO
+    ((select id from ORGANIZATION where ORGANIZATION.ID = 2),NULL,'FirstOffice','Улица Пушкина,дом 14 строение 1',89095557866,true);
+INSERT INTO DOCUMENT values ((select id from USER where ID = 1),'34564532342','12.12.12');
+INSERT INTO COUNTRY values ((select id from USER where ID = 1),'Russia','643');
+INSERT INTO DOCUMENTTYPE values ((select id from USER where ID = 1),'Паспорт','6431234567');
+ insert into USER values (1,null,'kirill','lukash','antonov','java junior','89998207818')

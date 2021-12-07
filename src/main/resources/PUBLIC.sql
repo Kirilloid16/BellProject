@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS Organization
-( id INTEGER PRIMARY KEY AUTO_INCREMENT,
+( id int primary key auto_increment,
  name varchar(40),
- fullName VARCHAR(40),
+ fullName varchar(40),
  inn varchar(10),
  kpp varchar(9),
  address varchar(130),
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Organization
 CREATE TABLE IF NOT EXISTS Office
 ( orgId integer,
 foreign key (orgId) references ORGANIZATiON(ID),
-  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  id int primary key auto_increment,
   name varchar(40),
   address varchar(130),
   phone varchar(30),
@@ -20,31 +20,30 @@ foreign key (orgId) references ORGANIZATiON(ID),
 CREATE TABLE IF NOT EXISTS User(
         officeId  int,
         foreign key (officeId) references OFFICE (id),
-        id        int primary key auto_increment,
+        id int primary key auto_increment,
         firstName varchar(30),
         lastName varchar(30),
         middleName varchar(30),
         position varchar(30),
-        phone varchar(20),
-        docName varchar(50),
-        docNumber varchar(30),
-        docCode varchar(30),
-        docDate varchar(30),
-        citizenShipName varchar(30),
-        citizenShipCode varchar(30),
-        isIdentified boolean
+        phone varchar(20)
         );
 
-CREATE TABLE IF NOT EXISTS Countries(
-id int primary key auto_increment,
-name varchar(50),
-code varchar(30)
-);
 
-CREATE TABLE IF NOT EXISTS Document(
-id int primary key auto_increment,
+CREATE TABLE IF NOT EXISTS DocumentType(
+    userId int,
+    foreign key (userId) references USER(id),
 docName varchar(50),
-docCode varchar(30),
+docCode varchar(30)
+);
+CREATE TABLE IF NOT EXISTS Document(
+    userId int,
+    foreign key (userId) references USER(id),
 docNumber varchar(12),
 docDate varchar(15)
+);
+CREATE TABLE IF NOT EXISTS Country(
+    userId int,
+    foreign key (userId) references USER(id),
+citizenShipName varchar(30),
+citizenShipCode varchar(30)
 );
