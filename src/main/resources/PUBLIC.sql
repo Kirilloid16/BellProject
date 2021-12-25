@@ -18,32 +18,29 @@ foreign key (orgId) references ORGANIZATiON(ID),
   ifActive boolean
 );
 CREATE TABLE IF NOT EXISTS User(
-        officeId  int,
-        foreign key (officeId) references OFFICE (id),
+        offId  int,
+        foreign key (offId) references OFFICE (id),
         id int primary key auto_increment,
         firstName varchar(30),
         lastName varchar(30),
         middleName varchar(30),
         position varchar(30),
-        phone varchar(20)
+        phone varchar(20),
+        docId int references DOCUMENT(id),
+        countryId int references COUNTRY(id),
         );
-
-
-CREATE TABLE IF NOT EXISTS DocumentType(
-    userId int,
-    foreign key (userId) references USER(id),
+CREATE TABLE IF NOT EXISTS DocumentType(id int,
 docName varchar(50),
 docCode varchar(30)
 );
-CREATE TABLE IF NOT EXISTS Document(
-    userId int,
-    foreign key (userId) references USER(id),
+CREATE TABLE IF NOT EXISTS Document(id int,userId int,
+docTypeId int,
+foreign key (docTypeId) references DOCUMENTTYPE(id),
+foreign key (userId) references USER(Id),
 docNumber varchar(12),
 docDate varchar(15)
 );
-CREATE TABLE IF NOT EXISTS Country(
-    userId int,
-    foreign key (userId) references USER(id),
+CREATE TABLE IF NOT EXISTS Country(id int,
 citizenShipName varchar(30),
 citizenShipCode varchar(30)
 );

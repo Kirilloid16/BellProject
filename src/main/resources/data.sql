@@ -11,4 +11,4 @@ INSERT INTO OFFICE values
 INSERT INTO DOCUMENT values ((select id from USER where ID = 1),'34564532342','12.12.12');
 INSERT INTO COUNTRY values ((select id from USER where ID = 1),'Russia','643');
 INSERT INTO DOCUMENTTYPE values ((select id from USER where ID = 1),'Паспорт','6431234567');
- insert into USER values (1,null,'kirill','lukash','antonov','java junior','89998207818')
+INSERT INTO USER values (1,null,'kirill','lukash','antonov','java junior','89998207818')
