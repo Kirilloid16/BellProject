@@ -3,7 +3,7 @@ package ru.lukah.bellproject.Model;
 import javax.persistence.*;
 
 @Entity(name = "Document")
-public class Document {
+public class DocumentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
