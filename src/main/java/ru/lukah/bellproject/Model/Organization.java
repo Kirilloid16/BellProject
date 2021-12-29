@@ -1,6 +1,7 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Organization")
@@ -23,7 +24,9 @@ public class Organization {
     private String phone;
     @Column(name = "isActive")
     private boolean isActive;
-
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "orgId")
+    private List<Office> officeList;
     public String getName() {
         return name;
     }

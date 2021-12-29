@@ -10,4 +10,10 @@ public class restController {
     public String showOrg(Model model){
         return "showOrg";
     }
+
+    @GetMapping("{id}")
+    public  String showOrgId(){
+        return null;
+    }
+    
 }

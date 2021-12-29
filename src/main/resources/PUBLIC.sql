@@ -17,6 +17,20 @@ CREATE TABLE IF NOT EXISTS Office
   phone varchar(30),
   ifActive boolean
 );
+CREATE TABLE if not exists DocumentType(id int,
+                                        docName varchar(50),
+                                        docCode varchar(30)
+);
+
+CREATE TABLE if not exists Country(id int,
+                                   citizenShipName varchar(30),
+                                   citizenShipCode varchar(30));
+CREATE TABLE if not exists UserDocument(
+                                           id int,
+                                           docTypeId int,
+                                           foreign key (docTypeId) references DOCUMENTTYPE (id),
+                                           docNumber varchar(12),
+                                           docDate varchar(15));
 CREATE TABLE if not exists User(
  offId  int,
 foreign key (offId) references OFFICE (id),
@@ -32,19 +46,3 @@ countryId int,
 foreign key(countryId) references COUNTRY(id)
 );
 
-CREATE TABLE if not exists DocumentType(id int,
-                           docName varchar(50),
-                           docCode varchar(30)
-);
-
-CREATE TABLE if not exists Country(id int,
-                      citizenShipName varchar(30),
-                      citizenShipCode varchar(30));
-CREATE TABLE if not exists UserDocument(
-    id int,
-    userId int,
-docTypeId int,
-foreign key (docTypeId) references DOCUMENTTYPE (id),
-docNumber varchar(12),
-docDate varchar(15)
-);

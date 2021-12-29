@@ -1,6 +1,7 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity(name = "User")
@@ -10,7 +11,6 @@ public class User {
     @Column(name = "id", nullable = false)
     private Long id;
     @Column(name = "officeId", nullable = false)
-    @JoinColumn()
     private long officeId;
     @Column(name = "firstName", nullable = false)
     private String firstName;
@@ -22,10 +22,12 @@ public class User {
     private String position;
     @Column(name = "phone", nullable = false)
     private String phone;
-    @Column(name = "sitizenShipName", nullable = false)
-    private String sitizenShipName;
-    @Column(name = "sitizenShipCode", nullable = false)
-    private String sitizenShipCode;
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "userId")
+    private List<UserDocument> ListOfDocs;
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "userId")
+    private List<Country> countryList;
 
     public long getOfficeId() {
         return officeId;
@@ -73,22 +75,6 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getSitizenShipName() {
-        return sitizenShipName;
-    }
-
-    public void setSitizenShipName(String sitizenShipName) {
-        this.sitizenShipName = sitizenShipName;
-    }
-
-    public String getSitizenShipCode() {
-        return sitizenShipCode;
-    }
-
-    public void setSitizenShipCode(String sitizenShipCode) {
-        this.sitizenShipCode = sitizenShipCode;
     }
 
     public Long getId() {

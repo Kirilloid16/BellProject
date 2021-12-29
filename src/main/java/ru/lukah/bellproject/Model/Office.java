@@ -1,6 +1,7 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "Office")
 public class Office {
@@ -8,10 +9,6 @@ public class Office {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name ="orgId")
-    private Organization organization;
 
     @Column(name = "name",nullable = false,length = 40)
     private String name;
@@ -21,6 +18,10 @@ public class Office {
     private String phone;
     @Column(name = "isActive",length = 50,nullable = false)
     private boolean isActive;
+
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "officeId")
+    private List<User> userList;
 
     public String getName() {
         return name;

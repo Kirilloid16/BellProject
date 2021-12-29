@@ -1,6 +1,7 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "Document")
 public class DocumentType {
@@ -12,6 +13,9 @@ public class DocumentType {
     private String docCode;
     @Column(name = "docName")
     private String docName;
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "docTypeId")
+    private List<UserDocument> userDocuments;
 
     public Long getId() {
         return id;

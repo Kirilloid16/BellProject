@@ -11,11 +11,12 @@ public class UserDocument {
     @Column(name = "userId")
     private int userId;
     @Column(name = "docTypeId")
-    private int docTyprId;
+    private int docTypeId;
     @Column(name = "docNumber")
     private String docNumber;
     @Column(name = "docDate")
     private String docDate;
+
 
     public int getUserId() {
         return userId;
@@ -26,11 +27,11 @@ public class UserDocument {
     }
 
     public int getDocTyprId() {
-        return docTyprId;
+        return docTypeId;
     }
 
     public void setDocTyprId(int docTyprId) {
-        this.docTyprId = docTyprId;
+        this.docTypeId = docTyprId;
     }
 
     public String getDocNumber() {
