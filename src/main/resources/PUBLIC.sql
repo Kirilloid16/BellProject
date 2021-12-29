@@ -27,6 +27,7 @@ CREATE TABLE if not exists Country(id int,
                                    citizenShipCode varchar(30));
 CREATE TABLE if not exists UserDocument(
                                            id int,
+                                           userId int,
                                            docTypeId int,
                                            foreign key (docTypeId) references DOCUMENTTYPE (id),
                                            docNumber varchar(12),
