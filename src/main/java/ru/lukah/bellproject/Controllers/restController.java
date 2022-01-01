@@ -11,7 +11,7 @@ public class restController {
         return "showOrg";
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public  String showOrgId(){
         return null;
     }

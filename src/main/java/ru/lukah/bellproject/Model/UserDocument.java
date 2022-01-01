@@ -1,6 +1,7 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "UserDocument")
@@ -8,31 +9,15 @@ public class UserDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "userId")
-    private int userId;
-    @Column(name = "docTypeId")
-    private int docTypeId;
+
     @Column(name = "docNumber")
     private String docNumber;
     @Column(name = "docDate")
     private String docDate;
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "docTypeId")
+    private DocumentType documentType;
 
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getDocTyprId() {
-        return docTypeId;
-    }
-
-    public void setDocTyprId(int docTyprId) {
-        this.docTypeId = docTyprId;
-    }
 
     public String getDocNumber() {
         return docNumber;

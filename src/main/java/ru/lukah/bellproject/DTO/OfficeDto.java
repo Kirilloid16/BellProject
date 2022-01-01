@@ -18,10 +18,8 @@ public class OfficeDto {
     @NotEmpty(message = "not must be empty")
     @Size(max = 130)
     private String address;
-    @NotEmpty(message = "not must be empty")
     @Size(max = 30)
     private String phone;
-    @NotEmpty(message = "not must be empty")
     private boolean isActive;
 
     @Override

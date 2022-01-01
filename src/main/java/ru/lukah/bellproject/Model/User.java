@@ -10,8 +10,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "officeId", nullable = false)
-    private long officeId;
     @Column(name = "firstName", nullable = false)
     private String firstName;
     @Column(name = "lastName", nullable = false)
@@ -22,20 +20,12 @@ public class User {
     private String position;
     @Column(name = "phone", nullable = false)
     private String phone;
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "userId")
-    private List<UserDocument> ListOfDocs;
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "userId")
-    private List<Country> countryList;
-
-    public long getOfficeId() {
-        return officeId;
-    }
-
-    public void setOfficeId(long officeId) {
-        this.officeId = officeId;
-    }
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "userDocId")
+    private UserDocument userDocument;
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "countryId")
+    private Country country;
 
     public String getFirstName() {
         return firstName;

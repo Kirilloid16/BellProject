@@ -10,8 +10,6 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "userId")
-    private int userId;
     @Column(name = "Name",nullable = false)
     private String name;
     @Column(name = "code")
