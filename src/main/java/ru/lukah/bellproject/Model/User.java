@@ -23,7 +23,7 @@ public class User {
     @Column(name = "phone", nullable = false)
     private String phone;
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "userid")
     private UserDocument userDocument;
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "Id")

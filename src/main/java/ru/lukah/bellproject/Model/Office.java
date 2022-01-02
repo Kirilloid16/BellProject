@@ -19,7 +19,6 @@ public class Office {
     private String phone;
     @Column(name = "isActive",length = 50,nullable = false)
     private boolean isActive;
-
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "officeId")
     private List<User> userList;
