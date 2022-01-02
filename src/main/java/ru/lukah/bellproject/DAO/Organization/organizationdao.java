@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface organizationdao {
     //вывод всего из бд
-    List<Organization> allOrganization();
+    List<Organization> allOrganizations();
     //сохранение в изменений бд
-    void  saveOrganization();
+    void  updateOrganization(Organization organization);
     //добавление в бд
-   Organization organization();
+   Organization postOrganization();
     //получение по id из бд
     Organization organization(long id);
 }

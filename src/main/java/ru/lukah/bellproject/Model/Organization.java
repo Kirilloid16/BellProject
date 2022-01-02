@@ -25,7 +25,7 @@ public class Organization {
     @Column(name = "isActive")
     private boolean isActive;
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "officeId")
+    @JoinColumn(name = "orgId")
     private List<Office> officeList;
     public String getName() {
         return name;

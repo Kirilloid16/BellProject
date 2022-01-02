@@ -9,13 +9,14 @@ public class UserDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "userId", nullable = false)
+    private int userId;
     @Column(name = "docNumber")
     private String docNumber;
     @Column(name = "docDate")
     private String docDate;
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "docTypeId")
+    @JoinColumn(name = "Id")
     private DocumentType documentType;
 
 
