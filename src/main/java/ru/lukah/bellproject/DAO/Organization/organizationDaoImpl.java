@@ -24,8 +24,10 @@ public class organizationDaoImpl implements organizationdao{
     }
 
     @Override
-    public void updateOrganization(Organization organization) {
-        String queryString ="Update Organization Set"
+    public Organization updateOrganization(Organization organization) {
+        String queryString ="Update Organization Set id =  , ";
+        TypedQuery<Organization> query =entityManager.createQuery(queryString,Organization.class);
+        return query.getSingleResult();
     }
 
     @Override

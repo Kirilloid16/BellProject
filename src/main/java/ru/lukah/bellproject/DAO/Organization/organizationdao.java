@@ -8,7 +8,7 @@ public interface organizationdao {
     //вывод всего из бд
     List<Organization> allOrganizations();
     //сохранение в изменений бд
-    void  updateOrganization(Organization organization);
+    Organization updateOrganization(Organization organization);
     //добавление в бд
    Organization postOrganization();
     //получение по id из бд

@@ -16,7 +16,7 @@ public class UserDocument {
     @Column(name = "docDate")
     private String docDate;
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "Id")
+    @JoinColumn(name = "userDocId")
     private DocumentType documentType;
 
 
