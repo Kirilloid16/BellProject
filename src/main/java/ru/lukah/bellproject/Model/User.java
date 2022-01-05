@@ -10,8 +10,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "Officeid")
-    private int officeid;
     @Column(name = "firstName", nullable = false)
     private String firstName;
     @Column(name = "lastName", nullable = false)
@@ -26,7 +24,7 @@ public class User {
     @JoinColumn(name = "userid")
     private UserDocument userDocument;
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "Id")
+    @JoinColumn(name = "userId")
     private Country country;
 
     public String getFirstName() {
