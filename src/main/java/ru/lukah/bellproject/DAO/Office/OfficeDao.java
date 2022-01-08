@@ -7,10 +7,10 @@ import java.util.List;
 public interface OfficeDao {
     // список всех офисов из бд
     List<Office> allOffice();
-    //получение офиса но id из бд
-    Office oneOffice(long id);
+    //получение офиса по id из бд
+    Office getOfficeById(long id);
     //обновление информации иб офисе в бд
-    void saveOffice();
+    void Officeupdate(int id,Office updateOffice);
     //добавление нового офиса в бд
-    Office newOffice = new Office();
+    void postOffice(Office office);
 }

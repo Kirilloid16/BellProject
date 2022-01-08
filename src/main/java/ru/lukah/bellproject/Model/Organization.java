@@ -12,8 +12,8 @@ public class Organization {
     private Long id;
     @Column(name = "name",length = 50,nullable = false)
     private String name;
-    @Column(name ="fullNmane",length = 255,nullable = false)
-    private String fullName;
+    @Column(name ="fullname",length = 255,nullable = false)
+    private String fullname;
     @Column(name = "inn",nullable = false)
     private String inn;
     @Column(name="kpp",nullable = false)
@@ -27,6 +27,11 @@ public class Organization {
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "orgId")
     private List<Office> officeList;
+
+    public Organization() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -36,11 +41,11 @@ public class Organization {
     }
 
     public String getFullName() {
-        return fullName;
+        return fullname;
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        this.fullname = fullName;
     }
 
     public String getInn() {
@@ -75,7 +80,7 @@ public class Organization {
         this.phone = phone;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
@@ -89,7 +94,13 @@ public class Organization {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Organization(String name, String fullname, String inn, String kpp, String address, String phone, boolean isActive) {
+        this.name = name;
+        this.fullname = fullname;
+        this.inn = inn;
+        this.kpp = kpp;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
     }
 }

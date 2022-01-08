@@ -47,7 +47,7 @@ public class Office {
         this.phone = phone;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
@@ -61,5 +61,12 @@ public class Office {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Office(String name, String address, String phone, boolean isActive) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
     }
 }
