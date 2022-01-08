@@ -9,8 +9,6 @@ public class Office {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "orgId")
-    private int OrgId;
     @Column(name = "name",nullable = false,length = 40)
     private String name;
     @Column(name = "address",length = 150,nullable = false)

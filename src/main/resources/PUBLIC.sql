@@ -18,15 +18,18 @@ CREATE TABLE IF NOT EXISTS Office
   ifActive boolean
 );
 CREATE TABLE if not exists DocumentType(id int,
+userDocId int,
                                         docName varchar(50),
                                         docCode varchar(30)
 );
 
 CREATE TABLE if not exists Country(id int,
+                                    userId int,
                                    citizenShipName varchar(30),
                                    citizenShipCode varchar(30));
 CREATE TABLE if not exists UserDocument(
                                            id int,
+                                           userId int,
                                            docTypeId int,
                                            foreign key (docTypeId) references DOCUMENTTYPE (id),
                                            docNumber varchar(12),

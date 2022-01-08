@@ -88,7 +88,16 @@ public class Organization {
         isActive = active;
     }
 
-
+    public Organization(Long id, String name, String fullName, String inn, String kpp, String address, String phone, boolean isActive) {
+        this.id = id;
+        this.name = name;
+        this.fullName = fullName;
+        this.inn = inn;
+        this.kpp = kpp;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
+    }
 
     public Long getId() {
         return id;
