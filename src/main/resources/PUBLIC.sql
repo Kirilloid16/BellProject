@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS Organization
   kpp varchar(9),
   address varchar(130),
   phone varchar(30),
-  ifActive boolean
+  isActive varchar(10)
 );
 CREATE TABLE IF NOT EXISTS Office
 ( orgId integer,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS Office
   name varchar(40),
   address varchar(130),
   phone varchar(30),
-  ifActive boolean
+  ifActive varchar(10)
 );
 CREATE TABLE if not exists DocumentType(id int,
 userDocId int,
