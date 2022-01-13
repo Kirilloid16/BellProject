@@ -23,15 +23,28 @@ public class Organization {
     @Column(name = "phone",length = 40,nullable = false)
     private String phone;
     @Column(name = "isActive")
-    private boolean isActive;
+    private String isActive;
     @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "orgId")
     private List<Office> officeList;
 
-    public Organization() {
-
+    public Organization(String name,String inn,String isActive) {
+        this.name = name;
+        this.inn = inn;
+        this.isActive = isActive;
     }
 
+    public Organization() {}
+
+    public Organization(String name, String fullname, String inn, String kpp, String address, String phone, String isActive) {
+        this.name = name;
+        this.fullname = fullname;
+        this.inn = inn;
+        this.kpp = kpp;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
+    }
     public String getName() {
         return name;
     }
@@ -80,22 +93,11 @@ public class Organization {
         this.phone = phone;
     }
 
-    public boolean getIsActive() {
+    public String getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public Organization(Long id, String name, String fullName, String inn, String kpp, String address, String phone, boolean isActive) {
-        this.id = id;
-        this.name = name;
-        this.fullName = fullName;
-        this.inn = inn;
-        this.kpp = kpp;
-        this.address = address;
-        this.phone = phone;
+    public void setIsActive(String isActive) {
         this.isActive = isActive;
     }
 
@@ -103,13 +105,4 @@ public class Organization {
         return id;
     }
 
-    public Organization(String name, String fullname, String inn, String kpp, String address, String phone, boolean isActive) {
-        this.name = name;
-        this.fullname = fullname;
-        this.inn = inn;
-        this.kpp = kpp;
-        this.address = address;
-        this.phone = phone;
-        this.isActive = isActive;
-    }
 }

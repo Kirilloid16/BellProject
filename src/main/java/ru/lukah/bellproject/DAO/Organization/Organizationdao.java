@@ -4,9 +4,9 @@ import ru.lukah.bellproject.Model.Organization;
 
 import java.util.List;
 
-public interface organizationdao {
+public interface Organizationdao {
     //read
-    List<Organization> allOrganizations();
+    List<Organization> allOrganizations(Organization organization);
 
     //update
     void update(int id, Organization updateOrganization);

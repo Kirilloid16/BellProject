@@ -15,18 +15,15 @@ public class OrganizationDto {
     @NotEmpty(message = "not must be empty")
     @Size(max = 40)
     private String fullName;
-    @NotEmpty(message = "not must be empty")
     @Size(max = 10)
     private String inn;
-    @NotEmpty(message = "not must be empty")
     @Size(max = 9)
     private String kpp;
-    @NotEmpty(message = "not must be empty")
     @Size(max = 130)
     private String address;
     @Size(max = 30)
     private String phone;
-    private boolean isActive;
+    private String isActive;
 
     @Override
     public String toString() {

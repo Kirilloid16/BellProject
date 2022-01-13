@@ -1,4 +1,7 @@
 package ru.lukah.bellproject.DAO.User;
 
-public class userDaoImpl {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class userDaoImpl implements UserDao {
 }
