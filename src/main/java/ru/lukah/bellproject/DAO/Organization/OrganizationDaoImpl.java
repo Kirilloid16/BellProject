@@ -2,7 +2,6 @@ package ru.lukah.bellproject.DAO.Organization;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import ru.lukah.bellproject.Model.Organization;
 import javax.persistence.EntityManager;

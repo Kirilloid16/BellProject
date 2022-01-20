@@ -20,10 +20,10 @@ public class User {
     private String position;
     @Column(name = "phone", nullable = false)
     private String phone;
-    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "userid")
+    @OneToOne
+    @JoinColumn(name = "userId")
     private UserDocument userDocument;
-    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToOne
     @JoinColumn(name = "userId")
     private Country country;
 

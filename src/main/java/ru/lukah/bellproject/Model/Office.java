@@ -21,6 +21,10 @@ public class Office {
     @JoinColumn(name = "officeId")
     private List<User> userList;
 
+    public Office() {
+
+    }
+
     public String getName() {
         return name;
     }

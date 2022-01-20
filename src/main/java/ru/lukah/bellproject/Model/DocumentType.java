@@ -9,10 +9,13 @@ public class DocumentType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+    @Column(name = "userDocId")
+    private int userDocId;
     @Column(name = "docCode")
     private String docCode;
     @Column(name = "docName")
     private String docName;
+
 
 
     public Long getId() {
