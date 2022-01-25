@@ -10,6 +10,9 @@ public class Office {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "orgId",referencedColumnName = "id")
+    private Organization organization;
     @Column(name = "name",nullable = false,length = 40)
     private String name;
     @Column(name = "address",length = 150,nullable = false)
@@ -18,9 +21,7 @@ public class Office {
     private String phone;
     @Column(name = "isActive",length = 50,nullable = false)
     private boolean isActive;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orgId",referencedColumnName = "id")
-    private Organization organization;
+
 
     public Office() {
 

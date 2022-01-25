@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS public."Organization"
 ALTER TABLE IF EXISTS public."Organization"
     OWNER to postgres;
 
+
+
 -- Table: public.Office
 
 -- DROP TABLE IF EXISTS public."Office";
@@ -30,6 +32,7 @@ CREATE TABLE IF NOT EXISTS public."Office"
     "orgId" integer,
     name character(30) COLLATE pg_catalog."default",
     address character(30) COLLATE pg_catalog."default",
+    phone character(30) COLLATE pg_catalog."default",
     "isActive" character(30) COLLATE pg_catalog."default",
     CONSTRAINT "Office_pkey" PRIMARY KEY (id),
     CONSTRAINT "orgId" FOREIGN KEY ("orgId")
@@ -116,8 +119,8 @@ CREATE TABLE IF NOT EXISTS public."userDocument"
     "docDate" character(30) COLLATE pg_catalog."default",
     "userId" bigint NOT NULL,
     CONSTRAINT "userDocument_pkey" PRIMARY KEY (id),
-    CONSTRAINT "userId" FOREIGN KEY ("userId")
-        REFERENCES public."User" (id) MATCH SIMPLE
+    CONSTRAINT "docTypeId" FOREIGN KEY ("docTypeId")
+        REFERENCES public."documentType" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 

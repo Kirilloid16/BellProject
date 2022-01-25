@@ -9,18 +9,17 @@ public class UserDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "userId")
-    private int userId;
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
+    @JoinColumn(name = "docTypeId")
+    private DocumentType documentType;
     @Column(name = "docNumber")
     private String docNumber;
     @Column(name = "docDate")
     private String docDate;
-    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "docTypeId")
-    private DocumentType documentType;
+    @Column(name = "userId")
+    private int userId;
     public UserDocument() {
     }
-
 
     public String getDocNumber() {
         return docNumber;
