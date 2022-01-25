@@ -1,4 +1,7 @@
 package ru.lukah.bellproject.Service.OfficeService;
 
-public class OfficeServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class OfficeServiceImpl implements OfficeService{
 }

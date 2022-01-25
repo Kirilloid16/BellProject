@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Organization</title>
+</head>
+<body>
+<p th:text="${organization.getId()}">value</p>
+<p th:text="${organization.getName()}">value</p>
+<p th:text="${organization.getFullName()}">value</p>
+<p th:text="${organization.getInn}">value</p>
+<p th:text="${organization.getKpp}">value</p>
+<p th:text="${organization.getAddress}">value</p>
+<p th:text="${organization.getIsActive}">value</p>
+
+<a th:href="@{/people/{id}/edit(id=${organization.getId()})}">Edit</a>
+
+</body>
+</html>

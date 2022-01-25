@@ -3,14 +3,13 @@ package ru.lukah.bellproject.Model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "Document")
+@Entity
+@Table(name = "documentType")
 public class DocumentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "userDocId")
-    private int userDocId;
     @Column(name = "docCode")
     private String docCode;
     @Column(name = "docName")

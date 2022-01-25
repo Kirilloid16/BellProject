@@ -3,7 +3,8 @@ package ru.lukah.bellproject.Model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "Office")
+@Entity
+@Table(name = "Office")
 public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +18,9 @@ public class Office {
     private String phone;
     @Column(name = "isActive",length = 50,nullable = false)
     private boolean isActive;
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "officeId")
-    private List<User> userList;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "orgId",referencedColumnName = "id")
+    private Organization organization;
 
     public Office() {
 
@@ -65,10 +66,11 @@ public class Office {
         this.id = id;
     }
 
-    public Office(String name, String address, String phone, boolean isActive) {
+    public Office(String name, String address, String phone, boolean isActive, Organization organization) {
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.isActive = isActive;
+        this.organization = organization;
     }
 }

@@ -1,19 +1,21 @@
 package ru.lukah.bellproject.Service.OrganizationService;
 
-import org.springframework.stereotype.Service;
+
+import org.springframework.validation.annotation.Validated;
 import ru.lukah.bellproject.DTO.OrganizationDto;
-import ru.lukah.bellproject.Model.Organization;
 
-import java.util.List;
+import javax.validation.Valid;
 
+@Validated
+public interface OrganizationService  {
 
-public interface OrganizationService {
-    //поиск по id
-    OrganizationDto getByIdOrg();
     // update по id
-    void update();
-    // post
-    void post (OrganizationDto organizationDto);
+    void update(int id,@Valid OrganizationDto organizationDto);
+
     // получение списка
-    List<OrganizationDto> allorganization(Organization organization);
+    // получение по айди
+    OrganizationDto getById (int id);
+    // добавление новой организации
+
+
 }

@@ -1,11 +1,19 @@
 package ru.lukah.bellproject.DTO;
 
-import org.springframework.validation.annotation.Validated;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-@Validated
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrganizationDto {
     @NotEmpty(message = "not must be empty")
     private Long id;

@@ -4,14 +4,13 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-@Entity(name = "Country")
+@Entity
+@Table(name = "country")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "userId")
-    private int userId;
     @Column(name = "Name",nullable = false)
     private String name;
     @Column(name = "code")

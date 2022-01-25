@@ -1,7 +1,7 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 @Table(name = "Organization")
@@ -24,9 +24,7 @@ public class Organization {
     private String phone;
     @Column(name = "isActive")
     private String isActive;
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "orgId")
-    private List<Office> officeList;
+
 
     public Organization(String name,String inn,String isActive) {
         this.name = name;
@@ -105,4 +103,17 @@ public class Organization {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", inn='" + inn + '\'' +
+                ", kpp='" + kpp + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", isActive='" + isActive + '\'' +
+                '}';
+    }
 }

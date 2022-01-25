@@ -4,20 +4,22 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "UserDocument")
+@Table(name = "userDocument")
 public class UserDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "userId", nullable = false)
+    @Column(name = "userId")
     private int userId;
     @Column(name = "docNumber")
     private String docNumber;
     @Column(name = "docDate")
     private String docDate;
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "userDocId")
+    @JoinColumn(name = "docTypeId")
     private DocumentType documentType;
+    public UserDocument() {
+    }
 
 
     public String getDocNumber() {

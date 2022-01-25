@@ -4,12 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 
-@Entity(name = "User")
+@Entity
+@Table(name = "User")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "offId",referencedColumnName = "id")
+    private Office office;
     @Column(name = "firstName", nullable = false)
     private String firstName;
     @Column(name = "lastName", nullable = false)
@@ -20,17 +24,19 @@ public class User {
     private String position;
     @Column(name = "phone", nullable = false)
     private String phone;
-    @OneToOne
-    @JoinColumn(name = "userId")
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "docId")
     private UserDocument userDocument;
-    @OneToOne
-    @JoinColumn(name = "userId")
+    @OneToOne (optional=false,cascade=CascadeType.ALL)
+    @JoinColumn (name="countryId")
     private Country country;
+
+
+
 
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

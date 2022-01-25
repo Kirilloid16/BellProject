@@ -44,31 +44,16 @@ public class OrganizationDaoImpl implements Organizationdao {
     }
 
 
-    @Override
-    public void update(int id,Organization updateOrganization) {
-         Organization organization = entityManager.find(Organization.class,id);
-        organization.setName(updateOrganization.getName());
-        organization.setFullName(updateOrganization.getFullName());
-        organization.setInn(updateOrganization.getInn());
-        organization.setKpp(updateOrganization.getKpp());
-        organization.setAddress(updateOrganization.getAddress());
-        organization.setPhone(updateOrganization.getPhone());
-        organization.setIsActive(updateOrganization.getIsActive());
-         entityManager.persist(organization);
-    }
+
 
 
     @Override
     public void post(Organization organization) {
-
         entityManager.persist(organization);
-
-
     }
 
     @Override
     public Organization getById(long id) {
-
        return entityManager.find(Organization.class,id);
     }
 }

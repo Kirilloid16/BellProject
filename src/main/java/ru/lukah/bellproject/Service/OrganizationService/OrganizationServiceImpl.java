@@ -1,41 +1,40 @@
 package ru.lukah.bellproject.Service.OrganizationService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.lukah.bellproject.DAO.Organization.Organizationdao;
 import ru.lukah.bellproject.DTO.OrganizationDto;
+import ru.lukah.bellproject.Mapper.OrganizationMapper;
 import ru.lukah.bellproject.Model.Organization;
-import java.util.List;
+
 
 @Service
-public class OrganizationServiceImpl implements OrganizationService{
-
-private final Organizationdao organizationDao;
-private final OrganizationDto organizationDto;
-     @Autowired
-    public OrganizationServiceImpl(OrganizationDto organizationDto,Organizationdao organizationDao) {
-        this.organizationDto = organizationDto;
-        this.organizationDao=organizationDao;
+public class OrganizationServiceImpl implements OrganizationService {
+    private final Organizationdao organizationdao;
+    private final OrganizationMapper organizationMapper;
+    public OrganizationServiceImpl(Organizationdao organizationdao, OrganizationMapper organizationMapper) {
+        this.organizationdao = organizationdao;
+        this.organizationMapper = organizationMapper;
     }
 
 
     @Override
-    public OrganizationDto getByIdOrg() {
-        return null;
+    public void update(int id, OrganizationDto Organization) {
+        Organization updateOrganization =  organizationMapper.DtoToModel(Organization);
+        Organization organization = organizationdao.getById(id);
+        organization.setName(updateOrganization.getName());
+        organization.setFullName(updateOrganization.getFullName());
+        organization.setInn(updateOrganization.getInn());
+        organization.setKpp(updateOrganization.getKpp());
+        organization.setAddress(updateOrganization.getAddress());
+        organization.setPhone(updateOrganization.getPhone());
+        organization.setIsActive(updateOrganization.getIsActive());
+        organizationdao.post(organization);
     }
 
     @Override
-    public void update() {
-
-    }
-
-    @Override
-    public void post(OrganizationDto organizationDto) {
-
-    }
-
-    @Override
-    public List<OrganizationDto> allorganization(Organization organization) {
-        return null;
+    public OrganizationDto getById(int id) {
+        Organization organization =organizationdao.getById(id);
+        OrganizationDto organizationDto = organizationMapper.ModelToDto(organization);
+        return organizationDto;
     }
 }
