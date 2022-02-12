@@ -16,6 +16,6 @@ public interface OrganizationService  {
     // получение по айди
     OrganizationDto getById (int id);
     // добавление новой организации
-
+    void post(OrganizationDto organizationDto);
 
 }

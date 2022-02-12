@@ -1,6 +1,6 @@
--- Table: public.Organization
 
--- DROP TABLE IF EXISTS public."Organization";
+
+ DROP TABLE IF EXISTS public."Organization";
 
 CREATE TABLE IF NOT EXISTS public."Organization"
 (
@@ -22,9 +22,9 @@ ALTER TABLE IF EXISTS public."Organization"
 
 
 
--- Table: public.Office
 
--- DROP TABLE IF EXISTS public."Office";
+
+ DROP TABLE IF EXISTS public."Office";
 
 CREATE TABLE IF NOT EXISTS public."Office"
 (
@@ -46,9 +46,9 @@ CREATE TABLE IF NOT EXISTS public."Office"
 ALTER TABLE IF EXISTS public."Office"
     OWNER to postgres;
 
--- Table: public.documentType
 
--- DROP TABLE IF EXISTS public."documentType";
+
+ DROP TABLE IF EXISTS public."documentType";
 
 CREATE TABLE IF NOT EXISTS public."documentType"
 (
@@ -63,9 +63,9 @@ CREATE TABLE IF NOT EXISTS public."documentType"
 ALTER TABLE IF EXISTS public."documentType"
     OWNER to postgres;
 
--- Table: public.country
 
--- DROP TABLE IF EXISTS public.country;
+
+ DROP TABLE IF EXISTS public.country;
 
 CREATE TABLE IF NOT EXISTS public.country
 (
@@ -80,9 +80,9 @@ CREATE TABLE IF NOT EXISTS public.country
 ALTER TABLE IF EXISTS public.country
     OWNER to postgres;
 
--- Table: public.User
 
--- DROP TABLE IF EXISTS public."User";
+
+DROP TABLE IF EXISTS public."User";
 
 CREATE TABLE IF NOT EXISTS public."User"
 (
@@ -107,9 +107,9 @@ CREATE TABLE IF NOT EXISTS public."User"
 ALTER TABLE IF EXISTS public."User"
     OWNER to postgres;
 
--- Table: public.userDocument
 
--- DROP TABLE IF EXISTS public."userDocument";
+
+DROP TABLE IF EXISTS public."userDocument";
 
 CREATE TABLE IF NOT EXISTS public."userDocument"
 (

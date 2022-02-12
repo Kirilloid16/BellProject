@@ -6,15 +6,11 @@ import ru.lukah.bellproject.Model.Organization;
 
 import java.util.List;
 
-public interface Organizationdao  {
+public interface Organizationdao {
     //read
     List<Organization> allOrganizations(Organization organization);
-
-
-
     //post
     void post(Organization organization);
-
     //получение по id из бд
     Organization getById(long id);
 }

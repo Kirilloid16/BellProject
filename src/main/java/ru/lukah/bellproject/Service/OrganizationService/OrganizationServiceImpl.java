@@ -37,4 +37,9 @@ public class OrganizationServiceImpl implements OrganizationService {
         OrganizationDto organizationDto = organizationMapper.ModelToDto(organization);
         return organizationDto;
     }
+
+    @Override
+    public void post(OrganizationDto organizationDto) {
+        organizationdao.post(organizationMapper.DtoToModel(organizationDto));
+    }
 }

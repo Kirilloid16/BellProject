@@ -4,7 +4,7 @@ INSERT INTO "Organization" values
 INSERT INTO "Organization" values
     (DEFAULT,'BP','BritishPetrolium',7766554433,123456700,
      'Улица Пушкина,дом 144 строение 12','84995556677','true');
--- INSERT INTO OFFICE values
+-- -- INSERT INTO OFFICE values
 --     ((select id from ORGANIZATION where ORGANIZATION.ID = 1),NULL,'MainOffice','Улица Пушкина,дом 144 строение 12',84999325871,'true');
 -- INSERT INTO OFFICE values
 --     ((select id from ORGANIZATION where ORGANIZATION.ID = 2),NULL,'FirstOffice','Улица Пушкина,дом 14 строение 1',89095557866,'true');

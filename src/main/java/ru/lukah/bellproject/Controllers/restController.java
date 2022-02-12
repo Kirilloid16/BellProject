@@ -1,6 +1,7 @@
 package ru.lukah.bellproject.Controllers;
 
 
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.lukah.bellproject.DAO.Organization.Organizationdao;
 import ru.lukah.bellproject.DTO.OrganizationDto;
@@ -8,6 +9,7 @@ import ru.lukah.bellproject.Service.OfficeService.OfficeService;
 import ru.lukah.bellproject.Service.OrganizationService.OrganizationService;
 import ru.lukah.bellproject.Service.UserService.UserService;
 
+import javax.validation.Valid;
 
 
 @RestController
@@ -35,11 +37,10 @@ public class restController {
 
     @GetMapping("/show/organization/{id}")
     public OrganizationDto showOrgId(@PathVariable("id") int id) {
-       OrganizationDto organization = organizationService.getById(id);
-        return organization ;
+       return organizationService.getById(id);
     }
 
-}
+
 //    @GetMapping("organization/{id}/update")
 //    public String EditOrgId(@PathVariable("id")int id, @ModelAttribute("organizationDto")
 //    @Valid OrganizationDto organizationDto, BindingResult bindingResult){
@@ -51,11 +52,12 @@ public class restController {
 //    @Valid OrganizationDto organizationDto, BindingResult bindingResult){
 //        return null;
 //    }
-//    @PostMapping("/organization/post")
-//    public String PostOrganization(@PathVariable("id") int id, @Valid OrganizationDto organizationDto)
-//    {
-//            return "updateOrg";
-//    }
+    @PostMapping("/organization/post")
+    public String PostOrganization(@RequestBody OrganizationDto organizationDto)
+    {
+            organizationService.post(organizationDto);
+            return "success";
+    }
 //
 //
 //    @GetMapping("/show/office")
@@ -94,4 +96,4 @@ public class restController {
 //    public String PostUser(){
 //        return null;
 //    }
-//}
+}
