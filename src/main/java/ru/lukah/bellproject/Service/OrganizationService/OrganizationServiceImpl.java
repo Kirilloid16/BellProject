@@ -6,6 +6,9 @@ import ru.lukah.bellproject.DTO.OrganizationDto;
 import ru.lukah.bellproject.Mapper.OrganizationMapper;
 import ru.lukah.bellproject.Model.Organization;
 
+import javax.transaction.Transactional;
+import java.util.List;
+
 
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
@@ -32,10 +35,15 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
-    public OrganizationDto getById(int id) {
-        Organization organization =organizationdao.getById(id);
-        OrganizationDto organizationDto = organizationMapper.ModelToDto(organization);
-        return organizationDto;
+    @Transactional
+    public List<Organization> listOrganizations() {
+        return organizationdao.allOrganizations();
+    }
+
+    @Override
+    @Transactional
+    public Organization getById(int id) {
+        return organizationdao.getById(id);
     }
 
     @Override

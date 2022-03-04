@@ -7,20 +7,20 @@ import javax.persistence.*;
 @Table(name = "Organization")
 public class Organization {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name",length = 50,nullable = false)
+    @Column(name = "name")
     private String name;
-    @Column(name ="fullname",length = 255,nullable = false)
+    @Column(name ="fullname")
     private String fullname;
-    @Column(name = "inn",nullable = false)
+    @Column(name = "inn")
     private String inn;
-    @Column(name="kpp",nullable = false)
+    @Column(name="kpp")
     private String kpp;
-    @Column(name = "address",length = 255,nullable = false)
+    @Column(name = "address")
     private String address;
-    @Column(name = "phone",length = 40,nullable = false)
+    @Column(name = "phone")
     private String phone;
     @Column(name = "isActive")
     private String isActive;
