@@ -1,10 +1,11 @@
 package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
-@Table(name = "Organization")
+@Table(name = "organization")
 public class Organization {
     @Id
     @Column(name = "id")
@@ -22,85 +23,25 @@ public class Organization {
     private String address;
     @Column(name = "phone")
     private String phone;
-    @Column(name = "isActive")
-    private String isActive;
+    @Column(name = "active")
+    private String active;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "org_id")
+    private List<Office> officeList;
 
-
-    public Organization(String name,String inn,String isActive) {
-        this.name = name;
-        this.inn = inn;
-        this.isActive = isActive;
+    public Organization() {
     }
 
-    public Organization() {}
-
-    public Organization(String name, String fullname, String inn, String kpp, String address, String phone, String isActive) {
+    public Organization(String name, String fullname, String inn, String kpp, String address,
+                        String phone, String active)
+    {
         this.name = name;
         this.fullname = fullname;
         this.inn = inn;
         this.kpp = kpp;
         this.address = address;
         this.phone = phone;
-        this.isActive = isActive;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFullName() {
-        return fullname;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullname = fullName;
-    }
-
-    public String getInn() {
-        return inn;
-    }
-
-    public void setInn(String inn) {
-        this.inn = inn;
-    }
-
-    public String getKpp() {
-        return kpp;
-    }
-
-    public void setKpp(String kpp) {
-        this.kpp = kpp;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(String isActive) {
-        this.isActive = isActive;
-    }
-
-    public Long getId() {
-        return id;
+        this.active = active;
     }
 
     @Override
@@ -113,7 +54,8 @@ public class Organization {
                 ", kpp='" + kpp + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", isActive='" + isActive + '\'' +
+                ", active='" + active + '\'' +
+                ", officeList=" + officeList +
                 '}';
     }
 }

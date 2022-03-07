@@ -1,37 +1,70 @@
 package ru.lukah.bellproject.DTO;
 
-
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class OrganizationDto {
-    @NotEmpty(message = "not must be empty")
     private Long id;
-    @NotEmpty(message = "not must be empty")
-    @Size(max = 40)
     private String name;
-    @NotEmpty(message = "not must be empty")
-    @Size(max = 40)
     private String fullName;
-    @Size(max = 10)
     private String inn;
-    @Size(max = 9)
     private String kpp;
-    @Size(max = 130)
     private String address;
-    @Size(max = 30)
     private String phone;
     private String isActive;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getInn() {
+        return inn;
+    }
+
+    public void setInn(String inn) {
+        this.inn = inn;
+    }
+
+    public String getKpp() {
+        return kpp;
+    }
+
+    public void setKpp(String kpp) {
+        this.kpp = kpp;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
+    }
 
     @Override
     public String toString() {

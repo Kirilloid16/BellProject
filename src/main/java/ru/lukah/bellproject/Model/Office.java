@@ -1,77 +1,92 @@
 package ru.lukah.bellproject.Model;
-//
-//import javax.persistence.*;
-//import java.util.List;
-//
-//@Entity
-//@Table(name = "Office")
-//public class Office {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id", nullable = false)
-//    private Long id;
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "orgId",referencedColumnName = "id")
-//    private Organization organization;
-//    @Column(name = "name",nullable = false,length = 40)
-//    private String name;
-//    @Column(name = "address",length = 150,nullable = false)
-//    private String address;
-//    @Column(name = "phone",length = 30,nullable = false)
-//    private String phone;
-//    @Column(name = "isActive",length = 50,nullable = false)
-//    private boolean isActive;
-//
-//
-//    public Office() {
-//
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public String getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(String address) {
-//        this.address = address;
-//    }
-//
-//    public String getPhone() {
-//        return phone;
-//    }
-//
-//    public void setPhone(String phone) {
-//        this.phone = phone;
-//    }
-//
-//    public boolean getIsActive() {
-//        return isActive;
-//    }
-//
-//    public void setActive(boolean active) {
-//        isActive = active;
-//    }
-//
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
-//
-//    public Office(String name, String address, String phone, boolean isActive, Organization organization) {
-//        this.name = name;
-//        this.address = address;
-//        this.phone = phone;
-//        this.isActive = isActive;
-//        this.organization = organization;
-//    }
-//}
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.List;
+
+
+@Entity
+@Table(name = "office")
+public class Office {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+    @Column(name = "org_id")
+    private Long org_id;
+    @Column(name = "name", nullable = false, length = 40)
+    private String name;
+    @Column(name = "address", length = 150, nullable = false)
+    private String address;
+    @Column(name = "phone", length = 30, nullable = false)
+    private String phone;
+    @Column(name = "isactive", length = 50, nullable = false)
+    private String isActive;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "office_id")
+    private List<User> userList;
+    public Office() {
+    }
+
+    public Office(long org_id, String name, String address, String phone,String isActive) {
+        this.org_id = org_id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setOrg_id(Long org_id) {
+        this.org_id = org_id;
+    }
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
+    }
+
+    @Override
+    public String toString() {
+        return "Office{" +
+                "id=" + id +
+                ", org_id=" + org_id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", isActive=" + isActive +
+                '}';
+    }
+}
+

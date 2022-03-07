@@ -1,7 +1,11 @@
 package ru.lukah.bellproject.Service.UserService;
 
-import org.springframework.validation.annotation.Validated;
+import ru.lukah.bellproject.Model.User;
 
-@Validated
+import java.util.List;
+
 public interface UserService {
+    List<User> list();
+    User getById(Long id);
+
 }
