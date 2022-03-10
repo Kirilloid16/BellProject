@@ -2,9 +2,7 @@ package ru.lukah.bellproject.Controllers.Get;
 
 
 import org.springframework.web.bind.annotation.*;
-import ru.lukah.bellproject.Model.Office;
-import ru.lukah.bellproject.Model.Organization;
-import ru.lukah.bellproject.Model.User;
+import ru.lukah.bellproject.Model.*;
 import ru.lukah.bellproject.Service.OfficeService.OfficeService;
 import ru.lukah.bellproject.Service.OrganizationService.OrganizationService;
 import ru.lukah.bellproject.Service.UserService.UserService;
@@ -57,5 +55,6 @@ public class GetRestController {
     public User showOneuser(@PathVariable("id") Long id){
         return userService.getById(id);
     }
+
 
 }

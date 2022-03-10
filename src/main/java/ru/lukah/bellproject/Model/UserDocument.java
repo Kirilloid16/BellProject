@@ -4,20 +4,18 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "userDocument")
+@Table(name = "user_document")
 public class UserDocument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true)
-    @JoinColumn(name = "docTypeId")
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "doc_type_id")
     private DocumentType docTypeId;
-    @Column(name = "docNumber")
+    @Column(name = "doc_number")
     private String docNumber;
-    @Column(name = "docDate")
+    @Column(name = "doc_date")
     private String docDate;
-    @Column(name = "userId")
-    private int userId;
     public UserDocument() {
     }
 
@@ -43,5 +41,15 @@ public class UserDocument {
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDocument{" +
+                "id=" + id +
+                ", docTypeId=" + docTypeId +
+                ", docNumber='" + docNumber + '\'' +
+                ", docDate='" + docDate + '\'' +
+                '}';
     }
 }

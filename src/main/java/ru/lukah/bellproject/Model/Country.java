@@ -2,16 +2,15 @@ package ru.lukah.bellproject.Model;
 
 import javax.persistence.*;
 
-import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "country")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
-    @Column(name = "Name",nullable = false)
+    @Column(name = "Name")
     private String name;
     @Column(name = "code")
     private String code;
@@ -38,5 +37,14 @@ public class Country {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                '}';
     }
 }

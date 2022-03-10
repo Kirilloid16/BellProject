@@ -8,13 +8,12 @@ import java.util.List;
 public class DocumentType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Column(name = "docCode")
     private String docCode;
     @Column(name = "docName")
     private String docName;
-
 
 
     public Long getId() {
@@ -41,5 +40,12 @@ public class DocumentType {
         this.docName = docName;
     }
 
-
+    @Override
+    public String toString() {
+        return "DocumentType{" +
+                "id=" + id +
+                ", docCode='" + docCode + '\'' +
+                ", docName='" + docName + '\'' +
+                '}';
+    }
 }

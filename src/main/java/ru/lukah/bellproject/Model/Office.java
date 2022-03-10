@@ -1,30 +1,24 @@
 package ru.lukah.bellproject.Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.List;
-
 
 @Entity
 @Table(name = "office")
 public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
     @Column(name = "org_id")
     private Long org_id;
-    @Column(name = "name", nullable = false, length = 40)
+    @Column(name = "name")
     private String name;
-    @Column(name = "address", length = 150, nullable = false)
+    @Column(name = "address")
     private String address;
-    @Column(name = "phone", length = 30, nullable = false)
+    @Column(name = "phone")
     private String phone;
-    @Column(name = "isactive", length = 50, nullable = false)
+    @Column(name = "isactive")
     private String isActive;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "office_id")
@@ -40,6 +34,25 @@ public class Office {
         this.isActive = isActive;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getOrg_id() {
+        return org_id;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
     public String getName() {
         return name;

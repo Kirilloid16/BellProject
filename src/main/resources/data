@@ -1,1 +1,0 @@
-insert into  public.office values (default,1,'main office','street','435344324','true');

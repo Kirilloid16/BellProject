@@ -2,7 +2,10 @@ package ru.lukah.bellproject.DAO.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import ru.lukah.bellproject.Model.Country;
+import ru.lukah.bellproject.Model.DocumentType;
 import ru.lukah.bellproject.Model.User;
+import ru.lukah.bellproject.Model.UserDocument;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -32,4 +35,6 @@ public class UserDaoImpl implements UserDao{
     public void User(User userUpdate) {
 
     }
+
+
 }
