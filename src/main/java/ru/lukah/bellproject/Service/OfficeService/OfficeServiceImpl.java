@@ -37,4 +37,9 @@ public class OfficeServiceImpl implements OfficeService {
     public Office update(Office office) {
         return officeDao.update(office);
     }
+
+    @Override
+    public List<Office> listOffice1(Office office) {
+        return officeDao.listOffice1(office);
+    }
 }
