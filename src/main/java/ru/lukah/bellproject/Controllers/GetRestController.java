@@ -57,8 +57,9 @@ public class GetRestController {
     }
 
     @GetMapping("/show/organizationsss")
-    public List<Organization> org(Organization organization){
-        return organizationService.organizations1(organization);
+    public List<Organization> org(@RequestBody Organization organization){
+        return  organizationService.organizations1(organization);
+
     }
 
 }

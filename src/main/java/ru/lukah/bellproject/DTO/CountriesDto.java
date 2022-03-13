@@ -7,8 +7,7 @@ import javax.validation.constraints.Size;
 
 @Validated
 public class CountriesDto {
-    @NotEmpty(message = "not must be empty")
-    private Long id;
+
     @NotEmpty(message = "not must be empty")
     @Size(max = 50)
     private String name;
@@ -18,7 +17,6 @@ public class CountriesDto {
     @Override
     public String toString() {
         return "CountriesDto{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", code=" + code +
                 '}';

@@ -45,19 +45,19 @@ public class OrganizationDaoImpl implements Organizationdao {
 
 //O.id,O.name,O.active (тестирую)
     @Override
-    public List<Organization> organizations1(Organization organization) {
-        Query query;
-        if(organization.getInn() != null){
-            query =  entityManager.createQuery("select O from Organization O where O.inn =:inn");
-        } else if (organization.getActive() != null){
-            query = entityManager.createQuery("select O from Organization O where O.active =:active");
-        } else if((organization.getInn() != null) && (organization.getActive()!=null)) {
-            query = entityManager.createQuery("select O from Organization O where O.active =:active and O.inn =:inn");
+    public List<Organization> organizations1(Organization organization1) {
+        TypedQuery<Organization> typedQuery;
+        if(organization1.getInn() != null){
+            typedQuery =  entityManager.createQuery("select O from Organization O where O.inn =:inn",Organization.class);
+        } else if (organization1.getActive() != null){
+            typedQuery= entityManager.createQuery("select O from Organization O where O.active =:active",Organization.class);
+        } else if((organization1.getInn() != null) && (organization1.getActive()!=null)) {
+            typedQuery= entityManager.createQuery("select O from Organization O where O.active =:active and O.inn =:inn",Organization.class);
         } else{
-            query = entityManager.createQuery("select O from Organization O where O.name =:name").setParameter("name",organization.getName());
+            typedQuery= entityManager.createQuery("select O from Organization O where O.name =:name",Organization.class).setParameter("name",organization1.getName());
         }
-        List<Organization> organizations = query.getResultList();
-        return organizations;
+        List<Organization> organizations1 = typedQuery.getResultList();
+        return organizations1;
     }
 }
 

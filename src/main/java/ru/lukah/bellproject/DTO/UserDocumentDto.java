@@ -7,8 +7,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 @Validated
 public class UserDocumentDto {
-    @NotEmpty(message = "not must be empty")
-    private Long id;
+
     @NotEmpty(message = "not must be empty")
     private int docNumber;
     @NotEmpty(message = "not must be empty")
@@ -17,7 +16,6 @@ public class UserDocumentDto {
     @Override
     public String toString() {
         return "DocumentDto{" +
-                "id=" + id +
                 ", docNumber=" + docNumber +
                 ", docDate=" + docDate +
                 '}';

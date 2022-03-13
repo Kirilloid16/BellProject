@@ -8,8 +8,7 @@ import javax.validation.constraints.Size;
 
 @Validated
 public class OfficeDto {
-    @NotEmpty(message = "not must be empty")
-    private Long id;
+
     @NotEmpty(message = "not must be empty")
     private String orgId;
     @NotEmpty(message = "not must be empty")
@@ -25,7 +24,6 @@ public class OfficeDto {
     @Override
     public String toString() {
         return "OfficeDto{" +
-                "id=" + id +
                 ", orgId='" + orgId + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +

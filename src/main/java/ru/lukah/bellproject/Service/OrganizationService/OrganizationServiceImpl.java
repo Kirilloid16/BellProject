@@ -43,11 +43,13 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
+    @Transactional
     public Organization update(Organization organization) {
         return organizationdao.update(organization);
     }
 
     @Override
+    @Transactional
     public List<Organization> organizations1(Organization organization) {
         return organizationdao.organizations1(organization);
     }
