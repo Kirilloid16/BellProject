@@ -25,6 +25,8 @@ public class OrganizationDaoImpl implements Organizationdao {
     }
 
 
+
+
     @Override
     public void post(Organization organization) {
         entityManager.persist(organization);
@@ -41,20 +43,20 @@ public class OrganizationDaoImpl implements Organizationdao {
        return entityManager.merge(organization);
     }
 
-
+//O.id,O.name,O.active (тестирую)
     @Override
     public List<Organization> organizations1(Organization organization1) {
-        Query query;
+        TypedQuery<Organization> typedQuery;
         if(organization1.getInn() != null){
-            query =  entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.inn =:inn");
+            typedQuery =  entityManager.createQuery("select O from Organization O where O.inn =:inn",Organization.class);
         } else if (organization1.getActive() != null){
-            query= entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.active =:active");
+            typedQuery= entityManager.createQuery("select O from Organization O where O.active =:active",Organization.class);
         } else if((organization1.getInn() != null) && (organization1.getActive()!=null)) {
-            query= entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.active =:active and O.inn =:inn");
+            typedQuery= entityManager.createQuery("select O from Organization O where O.active =:active and O.inn =:inn",Organization.class);
         } else{
-            query= entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.name =:name").setParameter("name",organization1.getName());
+            typedQuery= entityManager.createQuery("select O from Organization O where O.name =:name",Organization.class).setParameter("name",organization1.getName());
         }
-        List<Organization> organizations1 = query.getResultList();
+        List<Organization> organizations1 = typedQuery.getResultList();
         return organizations1;
     }
 }
