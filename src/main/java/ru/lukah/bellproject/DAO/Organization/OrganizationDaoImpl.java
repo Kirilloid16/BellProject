@@ -41,12 +41,9 @@ public class OrganizationDaoImpl implements OrganizationDao {
 
     public List<Organization> organizations1(Organization organization1) {
         Query query;
-        if (organization1.getInn() != null) {
-            query = this.entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.inn =:inn");
-        } else if (organization1.getActive() != null) {
-            query = this.entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.active =:active");
-        } else if (organization1.getInn() != null && organization1.getActive() != null) {
-            query = this.entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.active =:active and O.inn =:inn");
+        if ((organization1.getInn() != null)||(organization1.getActive() != null)) {
+            query = this.entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.active =:active or O.inn =:inn")
+                    .setParameter("active",organization1.getActive()).setParameter("inn",organization1.getInn());
         } else {
             query = this.entityManager.createQuery("select O.id,O.name,O.active from Organization O where O.name =:name").setParameter("name", organization1.getName());
         }
