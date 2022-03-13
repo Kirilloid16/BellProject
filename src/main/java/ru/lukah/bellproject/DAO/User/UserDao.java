@@ -12,6 +12,7 @@ public interface UserDao {
 
     User getById(Long id);
 
-    void User(User userUpdate);
+    void post (User user);
+    User update (User user);
 }
 

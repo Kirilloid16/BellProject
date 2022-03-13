@@ -1,4 +1,4 @@
-package ru.lukah.bellproject.Controllers.Get;
+package ru.lukah.bellproject.Controllers;
 
 
 import org.springframework.web.bind.annotation.*;
@@ -56,5 +56,9 @@ public class GetRestController {
         return userService.getById(id);
     }
 
+    @GetMapping("/show/organizationsss")
+    public List<Organization> org(Organization organization){
+        return organizationService.organizations1(organization);
+    }
 
 }

@@ -116,6 +116,7 @@ public class Organization {
         this.officeList = officeList;
     }
 
+
     @Override
     public String toString() {
         return "Organization{" +

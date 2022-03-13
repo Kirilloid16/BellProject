@@ -14,5 +14,7 @@ public interface Organizationdao  {
     void post(Organization organization);
     //получение по id из бд
     Organization getById(long id);
-
+    // update
+    Organization update(Organization organization);
+    List<Organization> organizations1(Organization organization);
 }

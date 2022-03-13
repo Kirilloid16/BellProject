@@ -10,5 +10,6 @@ import java.util.List;
 public interface UserService {
     List<User> list();
     User getById(Long id);
-
+    void post (User user);
+    User update(User user);
 }

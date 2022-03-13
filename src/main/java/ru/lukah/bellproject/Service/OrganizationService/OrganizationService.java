@@ -21,5 +21,7 @@ public interface OrganizationService  {
     Organization getById(Long id);
 
     // добавление новой организации
-    void post(OrganizationDto organization);
+    void post(Organization organization);
+    Organization update(Organization organization);
+    List<Organization> organizations1(Organization organization);
 }

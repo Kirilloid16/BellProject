@@ -23,20 +23,6 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
 
-//    @Override
-//    public void update(int id, OrganizationDto Organization) {
-//        Organization updateOrganization =  organizationMapper.DtoToModel(Organization);
-//        Organization organization = organizationdao.getById(id);
-//        organization.setName(updateOrganization.getName());
-//        organization.setFullName(updateOrganization.getFullName());
-//        organization.setInn(updateOrganization.getInn());
-//        organization.setKpp(updateOrganization.getKpp());
-//        organization.setAddress(updateOrganization.getAddress());
-//        organization.setPhone(updateOrganization.getPhone());
-//        organization.setIsActive(updateOrganization.getIsActive());
-//        organizationdao.post(organization);
-//    }
-
     @Override
     @Transactional
     public List<Organization> listOrganizations() {
@@ -45,13 +31,24 @@ public class OrganizationServiceImpl implements OrganizationService {
     }
 
     @Override
+    @Transactional
     public Organization getById(Long id) {
         return organizationdao.getById(id) ;
     }
 
     @Override
-    public void post(OrganizationDto organization) {
-        Organization organization1 = organizationMapper.DtoToModel(organization);
-        organizationdao.post(organization1);
+    @Transactional
+    public void post(Organization organization) {
+        organizationdao.post(organization);
+    }
+
+    @Override
+    public Organization update(Organization organization) {
+        return organizationdao.update(organization);
+    }
+
+    @Override
+    public List<Organization> organizations1(Organization organization) {
+        return organizationdao.organizations1(organization);
     }
 }

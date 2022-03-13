@@ -11,4 +11,5 @@ public interface OfficeDao {
     void post(Office office);
     //получение по id из бд
     Office getById(long id);
+    Office update(Office office);
 }

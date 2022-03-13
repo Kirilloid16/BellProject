@@ -9,6 +9,7 @@ import ru.lukah.bellproject.Model.User;
 import ru.lukah.bellproject.Model.UserDocument;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 @Service
 public class UserServiceImpl implements UserService{
@@ -18,14 +19,28 @@ public class UserServiceImpl implements UserService{
         this.userDao = userDao;
     }
 
+    @Transactional
     @Override
     public List<User> list() {
         return userDao.list();
     }
 
+    @Transactional
     @Override
     public User getById(Long id) {
         return userDao.getById(id);
+    }
+
+    @Transactional
+    @Override
+    public void post(User user) {
+        userDao.post(user);
+    }
+
+    @Transactional
+    @Override
+    public User update(User user) {
+        return userDao.update(user);
     }
 
 }

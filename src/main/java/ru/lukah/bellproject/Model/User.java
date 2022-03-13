@@ -19,7 +19,7 @@ public class User {
     private String position;
     @Column(name = "phone")
     private String phone;
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "doc_Id")
     private UserDocument userDocument;
     @OneToOne (fetch = FetchType.EAGER)
