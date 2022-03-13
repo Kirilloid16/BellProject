@@ -7,7 +7,7 @@ import ru.lukah.bellproject.Model.Organization;
 
 import java.util.List;
 
-public interface Organizationdao  {
+public interface OrganizationDao  {
     List<Organization> allOrganizations();
     //post
     void post(Organization organization);
