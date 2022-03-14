@@ -22,7 +22,7 @@ public class User {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "doc_Id")
     private UserDocument userDocument;
-    @OneToOne (fetch = FetchType.EAGER)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn (name="country_Id")
     private Country country;
 

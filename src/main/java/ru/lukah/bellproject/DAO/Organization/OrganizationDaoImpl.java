@@ -51,4 +51,10 @@ public class OrganizationDaoImpl implements OrganizationDao {
         List<Organization> organizations1 = query.getResultList();
         return organizations1;
     }
+
+    @Override
+    public void delete(Long id) {
+        Query query = entityManager.createQuery("Delete from Organization where id=:id").setParameter("id",id);
+        query.executeUpdate();
+    }
 }

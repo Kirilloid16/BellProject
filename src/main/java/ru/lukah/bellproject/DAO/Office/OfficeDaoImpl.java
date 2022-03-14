@@ -51,4 +51,10 @@ public class OfficeDaoImpl implements OfficeDao{
         List<Office> officeList = query.getResultList();
         return officeList;
     }
+
+    @Override
+    public void delete(Long id) {
+        Query query = entityManager.createQuery("delete from Office where id =:id").setParameter("id",id);
+        query.executeUpdate();
+    }
 }

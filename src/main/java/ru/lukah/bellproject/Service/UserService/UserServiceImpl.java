@@ -9,6 +9,7 @@ import ru.lukah.bellproject.Model.User;
 import ru.lukah.bellproject.Model.UserDocument;
 
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 @Service
@@ -41,6 +42,16 @@ public class UserServiceImpl implements UserService{
     @Override
     public User update(User user) {
         return userDao.update(user);
+    }
+    @Transactional
+    @Override
+    public List<User> list1(User user) {
+        return userDao.list1(user);
+    }
+    @Transactional
+    @Override
+    public void delete(Long id) {
+        userDao.delete(id);
     }
 
 }

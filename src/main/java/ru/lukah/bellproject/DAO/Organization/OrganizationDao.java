@@ -16,4 +16,5 @@ public interface OrganizationDao  {
     // update
     Organization update(Organization organization);
     List<Organization> organizations1(Organization organization);
+    void delete(Long id);
 }

@@ -54,4 +54,9 @@ public class OrganizationServiceImpl implements OrganizationService {
     public List<Organization> organizations1(Organization organization) {
         return organizationDao.organizations1(organization);
     }
+    @Transactional
+    @Override
+    public void delete(Long id) {
+        organizationDao.delete(id);
+    }
 }

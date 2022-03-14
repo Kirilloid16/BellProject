@@ -65,4 +65,9 @@ public class GetRestController {
     public List<Office> officeList1(@RequestBody Office office){
         return officeService.listOffice1(office);
     }
+
+    @GetMapping("/show/usersss")
+    public List<User> userList(@RequestBody User user){
+        return userService.list1(user);
+    }
 }

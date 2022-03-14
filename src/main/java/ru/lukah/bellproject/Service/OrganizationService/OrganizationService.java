@@ -12,9 +12,6 @@ import java.util.List;
 
 public interface OrganizationService  {
 
-//    // update по id
-//    void update(int id,@Valid OrganizationDto organizationDto);
-
     // получение списка
     List<Organization> listOrganizations();
     // получение по айди
@@ -24,4 +21,5 @@ public interface OrganizationService  {
     void post(Organization organization);
     Organization update(Organization organization);
     List<Organization> organizations1(Organization organization);
+    void delete(Long id);
 }

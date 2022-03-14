@@ -13,4 +13,5 @@ public interface OfficeDao {
     Office getById(long id);
     Office update(Office office);
     List<Office> listOffice1(Office office);
+    void delete(Long id);
 }

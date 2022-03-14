@@ -12,5 +12,6 @@ public interface OfficeService {
     //получение по id из бд
     Office getById(long id);
     Office update(Office office);
-     List<Office> listOffice1(Office office);
+    List<Office> listOffice1(Office office);
+    void delete(Long id);
 }

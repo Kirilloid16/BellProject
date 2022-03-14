@@ -1,5 +1,6 @@
 package ru.lukah.bellproject.Controllers;
 
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,27 +12,27 @@ import ru.lukah.bellproject.Service.OrganizationService.OrganizationService;
 import ru.lukah.bellproject.Service.UserService.UserService;
 
 @RestController
-public class PutRestConroller {
+public class PatchRestConroller {
     private final OrganizationService organizationService;
     private final OfficeService officeService;
     private UserService userService;
 
-    public PutRestConroller(OrganizationService organizationService, OfficeService officeService, UserService userService) {
+    public PatchRestConroller(OrganizationService organizationService, OfficeService officeService, UserService userService) {
         this.organizationService = organizationService;
         this.officeService = officeService;
         this.userService = userService;
     }
-    @PutMapping("/organization/update")
+    @PatchMapping("/organization/update")
     Organization update(@RequestBody Organization organization){
         return organizationService.update(organization);
     }
 
-    @PutMapping("/user/update")
+    @PatchMapping("/user/update")
     public User update(@RequestBody User user){
         return userService.update(user);
     }
 
-    @PutMapping("/office/update")
+    @PatchMapping("/office/update")
     public Office update(@RequestBody Office office){
         return officeService.update(office);
     }

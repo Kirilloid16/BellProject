@@ -1,9 +1,8 @@
 package ru.lukah.bellproject.Service.OfficeService;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import ru.lukah.bellproject.DAO.Office.OfficeDao;
-import ru.lukah.bellproject.DTO.OfficeDto;
 import ru.lukah.bellproject.Model.Office;
 
 import javax.transaction.Transactional;
@@ -38,8 +37,15 @@ public class OfficeServiceImpl implements OfficeService {
         return officeDao.update(office);
     }
 
+    @Transactional
     @Override
     public List<Office> listOffice1(Office office) {
         return officeDao.listOffice1(office);
+    }
+
+    @Transactional
+    @Override
+    public void delete(Long id) {
+        officeDao.delete(id);
     }
 }
