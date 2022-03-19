@@ -4,8 +4,6 @@ import org.springframework.stereotype.Service;
 import ru.lukah.bellproject.DAO.Organization.OrganizationDao;
 
 
-import ru.lukah.bellproject.DTO.OrganizationDto;
-import ru.lukah.bellproject.Mapper.OrganizationMapper;
 import ru.lukah.bellproject.Model.Organization;
 
 
@@ -16,11 +14,11 @@ import java.util.List;
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
     private final OrganizationDao organizationDao;
-    private final OrganizationMapper organizationMapper;
 
-    public OrganizationServiceImpl(OrganizationDao organizationDao, OrganizationMapper organizationMapper) {
+
+    public OrganizationServiceImpl(OrganizationDao organizationDao) {
         this.organizationDao = organizationDao;
-        this.organizationMapper = organizationMapper;
+
     }
 
 

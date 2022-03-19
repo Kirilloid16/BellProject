@@ -1,34 +1,63 @@
 package ru.lukah.bellproject.DTO;
 
-import org.springframework.beans.factory.support.ManagedArray;
-import org.springframework.validation.annotation.Validated;
-
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
-@Validated
 public class OfficeDto {
 
-    @NotEmpty(message = "not must be empty")
-    private String orgId;
-    @NotEmpty(message = "not must be empty")
-    @Size(max = 40)
+    private Long org_id;
     private String name;
-    @NotEmpty(message = "not must be empty")
-    @Size(max = 130)
     private String address;
-    @Size(max = 30)
     private String phone;
-    private boolean isActive;
+    private String isActive;
+
+    public Long getOrg_id() {
+        return org_id;
+    }
+
+    public void setOrg_id(Long org_id) {
+        this.org_id = org_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(String isActive) {
+        this.isActive = isActive;
+    }
 
     @Override
     public String toString() {
         return "OfficeDto{" +
-                ", orgId='" + orgId + '\'' +
+                "org_id=" + org_id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", isActive=" + isActive +
+                ", isActive='" + isActive + '\'' +
                 '}';
     }
 }

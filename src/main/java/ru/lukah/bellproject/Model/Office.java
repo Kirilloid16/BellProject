@@ -98,7 +98,8 @@ public class Office {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", isActive=" + isActive +
+                ", isActive='" + isActive + '\'' +
+                ", userList=" + userList +
                 '}';
     }
 }

@@ -15,7 +15,8 @@ import java.util.List;
 public class GetRestController {
     private final OrganizationService organizationService;
     private final OfficeService officeService;
-    private UserService userService;
+    private final UserService userService;
+
 
 
 
@@ -51,6 +52,7 @@ public class GetRestController {
     public List<User> userList(){
         return userService.list();
     }
+
     @GetMapping("/show/user/{id}")
     public User showOneuser(@PathVariable("id") Long id){
         return userService.getById(id);
@@ -59,7 +61,6 @@ public class GetRestController {
     @GetMapping("/show/organizationsss")
     public List<Organization> org(@RequestBody Organization organization){
         return  organizationService.organizations1(organization);
-
     }
     @GetMapping("/show/officesss")
     public List<Office> officeList1(@RequestBody Office office){

@@ -1,7 +1,9 @@
 package ru.lukah.bellproject.DTO;
 
+import javax.validation.constraints.NotEmpty;
+
 public class OrganizationDto {
-    private Long id;
+    @NotEmpty
     private String name;
     private String fullName;
     private String inn;
@@ -9,6 +11,7 @@ public class OrganizationDto {
     private String address;
     private String phone;
     private String isActive;
+
 
     public String getName() {
         return name;
@@ -69,14 +72,13 @@ public class OrganizationDto {
     @Override
     public String toString() {
         return "OrganizationDto{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", inn='" + inn + '\'' +
                 ", kpp='" + kpp + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", isActive=" + isActive +
+                ", isActive='" + isActive + '\'' +
                 '}';
     }
 }

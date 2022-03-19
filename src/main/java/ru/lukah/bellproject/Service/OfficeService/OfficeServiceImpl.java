@@ -3,6 +3,7 @@ package ru.lukah.bellproject.Service.OfficeService;
 
 import org.springframework.stereotype.Service;
 import ru.lukah.bellproject.DAO.Office.OfficeDao;
+
 import ru.lukah.bellproject.Model.Office;
 
 import javax.transaction.Transactional;
@@ -11,8 +12,10 @@ import java.util.List;
 public class OfficeServiceImpl implements OfficeService {
     private final OfficeDao officeDao;
 
+
     public OfficeServiceImpl(OfficeDao officeDao) {
         this.officeDao = officeDao;
+
     }
     @Transactional
     @Override
